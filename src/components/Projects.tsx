@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react'
 
 const projects = [
   {
-    title: 'PCS',
+    title: 'PadelClubStats',
     description: 'Application web full-stack sur le padel avec Symfony PHP, Tailwind CSS. Authentification, Dashboard',
     tags: ['Symfony', 'Twig', 'JavaScript Natif' ,'Tailwind CSS', 'PostgreSQL', 'Docker'],
     images: ['/PCS1.png', '/PCS2.png', '/PCS3.png', '/PCS4.png', '/PCS5.png', '/PCS6.png'],
@@ -15,7 +15,7 @@ const projects = [
     description: 'Mon portfolio professionnel.',
     tags: ['React', 'Tailwind CSS', 'Motion', 'TypeScript'],
     images: ['/Portfolio1.png', '/Portfolio2.png', '/Portfolio3.png', '/Portfolio4.png', '/Portfolio5.png'],
-    github: '#',
+    github: 'https://github.com/MathisCordon/Portfolio',
     demo: null,
   },
   {
@@ -53,7 +53,6 @@ function ProjectCarousel({ images }: { images: string[] }) {
         />
       </AnimatePresence>
 
-      {/* Indicateurs */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
         {images.map((_, i) => (
           <button
@@ -75,34 +74,44 @@ const containerVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 48 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  hidden: { opacity: 0, y: 48, filter: 'blur(6px)' },
+  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: 'easeOut' } },
 }
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as number[], delay },
+  viewport: { once: true, amount: 0.2 },
+})
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="min-h-screen flex items-center py-24 px-6 bg-white">
+      <div className="max-w-6xl mx-auto w-full py-16">
 
         {/* Titre */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <p className="text-xs font-bold tracking-widest text-black/40 uppercase mb-3 text-center">
+        <div className="mb-16">
+          <motion.p
+            className="text-xs font-bold tracking-widest text-black/40 uppercase mb-3 text-center"
+            {...fadeUp(0)}
+          >
             Réalisations
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-4 text-center">
+          </motion.p>
+          <motion.h2
+            className="text-4xl md:text-5xl font-black text-black mb-4 text-center"
+            {...fadeUp(0.1)}
+          >
             Projets
-          </h2>
-          <p className="text-black/50 text-center mb-16 max-w-xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="text-black/50 text-center max-w-xl mx-auto"
+            {...fadeUp(0.2)}
+          >
             Quelques projets représentatifs de mon travail.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
-        {/* Cards — stagger */}
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}

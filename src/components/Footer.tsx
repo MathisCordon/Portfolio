@@ -1,8 +1,8 @@
 import { motion } from 'motion/react'
 
 const socials = [
-  { label: 'GitHub', href: '#' },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'GitHub', href: 'https://github.com/MathisCordon' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mathiscordon/' },
 ]
 
 export default function Footer() {
@@ -23,6 +23,8 @@ export default function Footer() {
             <motion.a
               key={label}
               href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white/40 hover:text-white text-xs font-bold tracking-widest transition-colors"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
