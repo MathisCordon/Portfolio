@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react'
 const projects = [
   {
     title: 'PadelClubStats',
-    description: 'Application web full-stack sur le padel avec Symfony PHP, Tailwind CSS. Authentification, Dashboard',
+    description: 'Application web full-stack sur le padel pensée pour les clubs (diffusion classements FFT).',
     tags: ['Symfony', 'Twig', 'JavaScript Natif' ,'Tailwind CSS', 'PostgreSQL', 'Docker'],
     images: ['/PCS1.png', '/PCS2.png', '/PCS3.png', '/PCS4.png', '/PCS5.png', '/PCS6.png'],
     github: null,
@@ -12,8 +12,8 @@ const projects = [
   },
   {
     title: 'Portfolio',
-    description: 'Mon portfolio professionnel.',
-    tags: ['React', 'Tailwind CSS', 'Motion', 'TypeScript'],
+    description: 'Portfolio one-page.',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Motion', 'Vite', 'Docker'],
     images: ['/Portfolio1.png', '/Portfolio2.png', '/Portfolio3.png', '/Portfolio4.png', '/Portfolio5.png'],
     github: 'https://github.com/MathisCordon/Portfolio',
     demo: null,
